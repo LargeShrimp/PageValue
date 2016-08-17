@@ -1,5 +1,6 @@
 package taitanxiami.com.pagevalue;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -21,16 +22,28 @@ public class MainActivity extends AppCompatActivity {
     // Do something in response to button
         EditText editText = (EditText)findViewById(R.id.text_id);
         String message = editText.getText().toString();
-        if (message == null || message.length() == 0) {
+        if ( message.length() == 0) {
 
             Log.i("tag","不能传空值");
 
-//            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//            builder.setMessage(R.string.dialog_message)
-//                    .setTitle(R.string.dialog_title);
-//
-//// 3. Get the AlertDialog from create()
-//            AlertDialog dialog = builder.create();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(R.string.dialog_message)
+                    .setTitle(R.string.dialog_title);
+
+            builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User clicked OK button
+                }
+            });
+
+            builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User cancelled the dialog
+                }
+            });
+            AlertDialog dialog = builder.create();
+
+            dialog.show();
             return;
         }
         Intent intent = new Intent(this,DisplayMessageActivity.class);
