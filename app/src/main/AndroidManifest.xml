@@ -17,12 +17,12 @@
         </activity>
 
         <activity
-            android:name="taitanxiami.com.pagevalue.DisplayMessageActivity"
+            android:name=".DisplayMessageActivity"
             android:label="@string/title_activity_display_message"
-            android:parentActivityName="taitanxiami.com.pagevalue.MainActivity" >
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="taitanxiami.com.pagevalue.MainActivity" />
+                android:value=".MainActivity" />
         </activity>
 
     </application>
